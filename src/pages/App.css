@@ -100,13 +100,14 @@ body {
 }
 
 .navegacao li {
+    font-size: larger;
   padding-right: 2.5em;
   text-decoration: none;
 }
 
 .navegacao a {
   text-decoration: none;
-  color: burlywood
+  color: white
 }
 
 .empty {
