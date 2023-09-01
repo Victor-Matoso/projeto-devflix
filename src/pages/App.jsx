@@ -39,75 +39,68 @@ const App = () => {
 
   return (
     <>
-    <div className="divMaster">
-      <div id="app">
-        {/* <div className="cabecalhoMaster"> */}
-        <div className="logo">
-          <img src={logo} alt="logo devflix" />
+      <div className="divMaster">
+        <div id="app">
+          {/* <div className="cabecalhoMaster"> */}
+          <div className="logo">
+            <img src={logo} alt="logo devflix" />
+          </div>
+          <div className="navegacao">
+            <ul>
+              <li>
+                <a href="#">Início</a>
+              </li>
+              <li>
+                <a href="#">Filmes</a>
+              </li>
+              <li>
+                <a href="#">Séries</a>
+              </li>
+            </ul>
+          </div>
+          <div className="search">
+            <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyPress}
+              placeholder="Pesquise por filmes"
+            />
+            <img
+              src={searchIcon}
+              alt="Icone de pesquisa"
+              onClick={() => searchMovies(searchTerm)}
+            />
+          </div>
+          {/* </div> */}
         </div>
-        <div className="navegacao">
-          <ul>
-            <li>
-              <a href="#">Início</a>
-            </li>
-            <li>
-              <a href="#">Filmes</a>
-            </li>
-            <li>
-              <a href="#">Séries</a>
-            </li>
-          </ul>
+        <div className="espacotitle">
+          <h2>Em alta:</h2>
         </div>
-        <div className="search">
-          <input
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyDown={handleKeyPress}
-            placeholder="Pesquise por filmes"
-          />
-          <img
-            src={searchIcon}
-            alt="Icone de pesquisa"
-            onClick={() => searchMovies(searchTerm)}
-          />
-        </div>
-        {/* </div> */}
+        {movies?.length > 0 ? (
+          <>
+            <div className="container">
+              <section className="sect">
+                {movies.map((movie) => (
+                  <MovieCard key={movie.imdbID} movies={movie} />
+                ))}
+              </section>
+            </div>
+            <div className="container">
+              <h2>Lançamentos</h2>
+              <section className="sect">
+                {movies.map((movie) => (
+                  <MovieCard key={movie.imdbID} movies={movie} />
+                ))}
+              </section>
+            </div>
+          </>
+        ) : (
+          <div className="empty">
+            <h2>Nenhum filme encontrado 😢</h2>
+          </div>
+        )}
+        <Footer link={"https:github.com.br"}>VictorMatoso</Footer>
       </div>
-      <div className="espacotitle">
-        <h2>
-          Em alta:
-        </h2>
-      </div>
-      {movies?.length > 0 ? (
-        <div className="container">
-          <section className="sect">
-          {movies.map((movie) => (
-            <MovieCard key={movie.imdbID} movies={movie} />
-          ))}
-          </section>
-          
-<h2>
-  Lançamentos
-</h2>
-          <section className="sect">
-          {movies.map((movie) => (
-            <MovieCard key={movie.imdbID} movies={movie} />
-          ))}
-          </section>
-          
-        </div>
-
-        
-
-        
-        
-      ) : (
-        <div className="empty">
-          <h2>Nenhum filme encontrado 😢</h2>
-        </div>
-      )}
-      <Footer link={"https:github.com.br"}>VictorMatoso</Footer>
-    </div>
     </>
   );
 };
