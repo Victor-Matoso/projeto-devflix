@@ -85,14 +85,42 @@ const App = () => {
                 ))}
               </section>
             </div>
-            <div className="container">
-              <h2>Lançamentos</h2>
+            <div className="espacotitle2">
+              <h2>Lançamentos:</h2>
+            </div>
+            <div className="container2">
+            
               <section className="sect">
                 {movies.map((movie) => (
                   <MovieCard key={movie.imdbID} movies={movie} />
                 ))}
               </section>
             </div>
+
+            <div className="espacotitle2">
+              <h2>Filmes de comédia:</h2>
+            </div>
+            <div className="container2">
+            
+              <section className="sect">
+                {movies.map((movie) => (
+                  <MovieCard key={movie.imdbID} movies={movie} />
+                ))}
+              </section>
+            </div>
+
+            <div className="espacotitle2">
+              <h2>Filmes de ação:</h2>
+            </div>
+            <div className="container2">
+            
+              <section className="sect">
+                {movies.map((movie) => (
+                  <MovieCard key={movie.imdbID} movies={movie} />
+                ))}
+              </section>
+            </div>
+
           </>
         ) : (
           <div className="empty">
